@@ -1,0 +1,10 @@
+<project name="SE411 Course Project">
+  <body>
+    <menu name="Documentation">
+      <item name="Overview" href="index.html" />
+      <item name="Getting Started" href="getting-started.html" />
+      <item name="Architecture" href="architecture.html" />
+    </menu>
+    <menu ref="reports" />
+  </body>
+</project>
