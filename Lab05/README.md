@@ -47,13 +47,7 @@ Eight JUnit tests cover age boundaries, transfers, withdrawing the full balance,
 unchanged balances after failures, invalid amounts and opening balances, and
 repeated decimal withdrawals.
 
-Exception-handling review: checked exceptions represent recoverable business
-failures; invalid arguments use a standard runtime exception; catches are
-specific; messages explain the failure; and failed withdrawals preserve state.
-
-The assignment also requests a GitHub Copilot review. That review has **not**
-been performed: GitHub CLI is not authenticated and no Copilot review integration
-is available in this session. The checks above are local validation, not a
-Copilot review. To finish that step, use Copilot's code review on these Java files
-in your editor or request a Copilot review on a pull request if available for
-your account.
+An exception-handling review was performed by OpenAI Codex. See
+[REVIEW.md](REVIEW.md) for the scope, findings, and validation. This substitutes
+for the requested review at the author's direction; GitHub Copilot did not
+perform it.
