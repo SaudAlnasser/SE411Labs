@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>edu.psu.se411</groupId><artifactId>lab06_logging</artifactId><version>1.0-SNAPSHOT</version>
+  <properties>
+    <maven.compiler.release>8</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <log.level>INFO</log.level>
+  </properties>
+  <dependencies>
+    <dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.16</version></dependency>
+    <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><version>5.11.0</version><scope>test</scope></dependency>
+  </dependencies>
+  <profiles>
+    <profile>
+      <id>log4j</id><activation><activeByDefault>true</activeByDefault></activation>
+      <dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-log4j12</artifactId><version>2.0.16</version></dependency></dependencies>
+    </profile>
+    <profile>
+      <id>logback</id>
+      <dependencies><dependency><groupId>ch.qos.logback</groupId><artifactId>logback-classic</artifactId><version>1.3.15</version></dependency></dependencies>
+    </profile>
+    <profile><id>api-only</id></profile>
+  </profiles>
+  <build>
+    <resources><resource><directory>src/main/resources</directory><filtering>true</filtering></resource></resources>
+    <plugins>
+      <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.13.0</version></plugin>
+      <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>3.5.0</version><configuration><failIfNoTests>true</failIfNoTests></configuration></plugin>
+      <plugin><groupId>org.codehaus.mojo</groupId><artifactId>exec-maven-plugin</artifactId><version>3.5.0</version><configuration><mainClass>edu.spu.se411.lab06_logging.App</mainClass></configuration></plugin>
+    </plugins>
+  </build>
+</project>
