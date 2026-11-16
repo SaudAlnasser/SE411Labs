@@ -1,0 +1,31 @@
+@baseUrl = http://localhost:8080/api/v1/courses
+
+### 1. Read all courses (200)
+GET {{baseUrl}}
+
+### 2. Create a course (201; Location header contains generated ID)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{"code":"SE411","name":"Software Construction","description":"Lab 15 MySQL","credits":3}
+
+### Set this to the ID returned in the POST Location header
+@id = 3
+
+### 3. Read one course (200)
+GET {{baseUrl}}/{{id}}
+
+### 4. Update a course (204)
+PUT {{baseUrl}}/{{id}}
+Content-Type: application/json
+
+{"code":"SE411","name":"Software Construction Updated","description":"Updated with PUT","credits":4}
+
+### Verify update (200)
+GET {{baseUrl}}/{{id}}
+
+### 5. Delete a course (204)
+DELETE {{baseUrl}}/{{id}}
+
+### Verify deletion (404)
+GET {{baseUrl}}/{{id}}
